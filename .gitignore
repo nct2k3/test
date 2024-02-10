@@ -1,2 +1,4 @@
 *.env
 test/
+target/classes/BUS/OnlineCourseBUS.class
+target/classes/DAL/OnlineCourseDAL.class
