@@ -1,5 +1,3 @@
 *.env
 test/
-target/classes/BUS/CourseBUS.class
-target/classes/DAL/CourseDAL.class
-target/classes/DTO/CourseDTO.class
+target/
