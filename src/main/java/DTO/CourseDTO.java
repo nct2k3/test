@@ -4,10 +4,10 @@ public class CourseDTO {
     private int courseID;
     private int departmentID;
     private String title;
-    private String credits;
+    private int credits;
 
     public CourseDTO(){};
-    public CourseDTO(int courseID, int departmentID, String title, String credits){
+    public CourseDTO(int courseID, int departmentID, String title, int credits){
         this.courseID = courseID;
         this.departmentID = departmentID;
         this.title = title;
@@ -31,10 +31,10 @@ public class CourseDTO {
     public void setTitle(String title) {
         this.title = title;
     }
-    public String getCredits() {
+    public int getCredits() {
         return credits;
     }
-    public void setCredits(String credits) {
+    public void setCredits(int credits) {
         this.credits = credits;
     }
 
