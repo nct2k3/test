@@ -7,13 +7,15 @@ public class DepartmentDTO {
     private String name;
     private Double budget;
     private LocalDateTime startDate;
+    private int administrator;
 
     public DepartmentDTO(){};
-    public DepartmentDTO(int departmentID, String name, Double budget, LocalDateTime startDate){
+    public DepartmentDTO(int departmentID, String name, Double budget, LocalDateTime startDate, int administrator){
         this.departmentID = departmentID;
         this.name = name;
         this.budget = budget;
         this.startDate = startDate;
+        this.administrator = administrator;
     }
     public int getDepartmentID() {
         return departmentID;
@@ -38,5 +40,11 @@ public class DepartmentDTO {
     }
     public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
+    }
+    public int getAdministrator() {
+        return administrator;
+    }
+    public void setAdministrator(int administrator) {
+        this.administrator = administrator;
     }
 }
