@@ -40,7 +40,7 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
     }
 
     @Override
-    public <T> int insertObject(T object) {
+    public <StudentDTO> int insertObject(StudentDTO object) {
         StudentDTO studentDTO = (StudentDTO) object;
 
         String queryInsert = "INSERT INTO person (PersonID, Firstname, "
@@ -61,7 +61,7 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
     }
 
     @Override
-    public <T> int updateObject(T object) {
+    public <StudentDTO> int updateObject(StudentDTO object) {
         StudentDTO studentDTO = (StudentDTO) object;
         String updateQuery = "update Person set Firstname = ?, Lastname = ?, EnrollmentDate = ? WHERE PersonID = ?";
         try {
@@ -91,7 +91,7 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
     }
 
     @Override
-    public <T> T getAnObjectByID(int objectID) {
+    public <StudentDTO> StudentDTO getAnObjectByID(int objectID) {
         String selectQuery = "SELECT * FROM `person` WHERE PersonID = ?";
         StudentDTO studentRS = null;
         try {
@@ -104,7 +104,7 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
                         LocalDateTime.parse(rsSet.getString("EnrollmentDate"), formatter));
 
             }
-            return (T) studentRS;
+            return (TStudentDTO) studentRS;
         } catch (SQLException ex) {
             return null;
         }
@@ -164,23 +164,5 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
         } catch (SQLException ex) {
             return null;
         }
-    }
-    
-    
-
-    public static void main(String[] args) {
-//        LocalDateTime dt2 =  LocalDateTime.now();
-//         System.out.println(date);
-//        StudentDTO student = new StudentDTO(3, "Tú", "Võ",     dt2);
-//                new StudentDAL().updateObject(student);
-        List<StudentDTO> rs = new StudentDAL().getAllStudentsOfACourse(1050);
-        for (StudentDTO student : rs) {
-            System.out.println(student.getEnrollmentDate());
-            System.out.println(student.getFirstName());
-            System.out.println(student.getLastName());
-            System.out.println(student.getID());
-        }
-//        System.out.println(rs.size());
-
     }
 }
