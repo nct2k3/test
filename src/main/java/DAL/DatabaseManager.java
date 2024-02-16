@@ -11,6 +11,7 @@ public class DatabaseManager {
 
     public DatabaseManager(String url, String user, String password){
         try {
+//            connection.pre
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             connection = DriverManager.getConnection(url, user, password);
@@ -64,5 +65,9 @@ public class DatabaseManager {
             e.printStackTrace();
         }
         return -1; //loi
+    }
+    
+    public Connection getConnection() {
+        return this.connection;
     }
 }
