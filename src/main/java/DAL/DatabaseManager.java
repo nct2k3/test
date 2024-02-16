@@ -65,4 +65,8 @@ public class DatabaseManager {
         }
         return -1; //loi
     }
+    
+    public Connection getConnection() {
+        return this.connection;
+    }
 }
