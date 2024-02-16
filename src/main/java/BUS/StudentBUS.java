@@ -17,8 +17,8 @@ import java.util.List;
 public class StudentBUS {
     private IStudentDAL studentDAL;
     
-    public StudentBUS() {
-        studentDAL = new StudentDAL();
+    public StudentBUS(IStudentBUS studentDAL) {
+        this.studentDAL = studentDAL;
     }
     
     public int insertObject(StudentDTO object) {
