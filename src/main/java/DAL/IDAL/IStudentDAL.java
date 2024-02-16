@@ -6,6 +6,6 @@ import DTO.CourseDTO;
 import DTO.StudentDTO;
 
 public interface IStudentDAL {
-    public List<CourseDTO> getAllStudent();
+    public List<StudentDTO> getAllStudent();
     public List<StudentDTO> getAllStudentsOfACourse(int courseID);
 }
