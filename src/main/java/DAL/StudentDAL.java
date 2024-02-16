@@ -40,9 +40,9 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
     }
 
     @Override
-    public <StudentDTO> int insertObject(StudentDTO object) {
+    public <T> int insertObject(T object) {
         StudentDTO studentDTO = (StudentDTO) object;
-
+    
         String queryInsert = "INSERT INTO person (PersonID, Firstname, "
                 + "Lastname, HireDate, EnrollmentDate) "
                 + "VALUES (NULL, ?, ?, NULL, ?)";
@@ -61,7 +61,7 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
     }
 
     @Override
-    public <StudentDTO> int updateObject(StudentDTO object) {
+    public <T> int updateObject(T object) {
         StudentDTO studentDTO = (StudentDTO) object;
         String updateQuery = "update Person set Firstname = ?, Lastname = ?, EnrollmentDate = ? WHERE PersonID = ?";
         try {
@@ -91,7 +91,7 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
     }
 
     @Override
-    public <StudentDTO> StudentDTO getAnObjectByID(int objectID) {
+    public <T> T getAnObjectByID(int objectID) {
         String selectQuery = "SELECT * FROM `person` WHERE PersonID = ?";
         StudentDTO studentRS = null;
         try {
@@ -104,7 +104,7 @@ public class StudentDAL implements IObjectDAL, IStudentDAL {
                         LocalDateTime.parse(rsSet.getString("EnrollmentDate"), formatter));
 
             }
-            return (TStudentDTO) studentRS;
+            return (T) studentRS;
         } catch (SQLException ex) {
             return null;
         }

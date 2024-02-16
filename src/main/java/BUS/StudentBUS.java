@@ -17,7 +17,7 @@ import java.util.List;
 public class StudentBUS {
     private IStudentDAL studentDAL;
     
-    public StudentBUS(IStudentBUS studentDAL) {
+    public StudentBUS(IStudentDAL studentDAL) {
         this.studentDAL = studentDAL;
     }
     
