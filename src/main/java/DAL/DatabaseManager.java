@@ -9,13 +9,28 @@ import java.sql.SQLException;
 public class DatabaseManager {
     private Connection connection;
 
-    public DatabaseManager(String url, String user, String password){
+    private static String url = "jdbc:mysql://localhost:3306/school";
+    private static String user = "root";
+    private static String password = "";
+
+    public DatabaseManager() {
+        init();
+    }
+
+    public DatabaseManager(String url, String user, String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+        init();
+    }
+
+    private void init() {
         try {
 //            connection.pre
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             connection = DriverManager.getConnection(url, user, password);
-            
+
 
             if (connection != null) {
                 System.out.println("Connected");
@@ -30,7 +45,7 @@ public class DatabaseManager {
         }
     }
 
-	//thuc hien cac truy van lay du lieu
+    //thuc hien cac truy van lay du lieu
     public ResultSet executeQuery(String query) {
         try {
             if (connection != null) {
@@ -47,8 +62,8 @@ public class DatabaseManager {
         }
         return null;
     }
-    
-	//thuc hien cac tuy van them sua xoa
+
+    //thuc hien cac tuy van them sua xoa
     public int executeNonQuery(String query) {
         try {
             if (connection != null) {
@@ -66,7 +81,7 @@ public class DatabaseManager {
         }
         return -1; //loi
     }
-    
+
     public Connection getConnection() {
         return this.connection;
     }
