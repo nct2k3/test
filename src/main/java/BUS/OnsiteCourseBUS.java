@@ -11,8 +11,8 @@ import DTO.OnsiteCourseDTO;
 public class OnsiteCourseBUS {
     private IObjectDAL onsiteCourseDAL;
 
-    public OnsiteCourseBUS() {
-        this.onsiteCourseDAL = new OnsiteCourseDAL();
+    public OnsiteCourseBUS(IObjectDAL onsiteCourseDAL) {
+        this.onsiteCourseDAL = onsiteCourseDAL;
     }
 
     public int createAnOnsiteCourse(OnsiteCourseDTO course) {
