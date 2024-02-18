@@ -9,8 +9,8 @@ import DTO.OnlineCourseDTO;
 public class OnlineCourseBUS {
     private IObjectDAL onlineCourseDAL;
 
-    public OnlineCourseBUS() {
-        this.onlineCourseDAL = new OnlineCourseDAL();
+    public OnlineCourseBUS(IObjectDAL onlineCourseDAL) {
+        this.onlineCourseDAL = onlineCourseDAL;
     }
 
     public int createAnOnlineCourse(OnlineCourseDTO course) {
