@@ -14,8 +14,8 @@ import DAL.IDAL.IDepartmentDAL;
 public class DepartmentBUS {
     private IDepartmentDAL departmentDAL;
 
-    public DepartmentBUS() {
-        this.departmentDAL = new DepartmentDAL();
+    public DepartmentBUS(IDepartmentDAL departmentDAL) {
+        this.departmentDAL = departmentDAL;
     }
 
     public int createDepartment(DepartmentDTO department) {
