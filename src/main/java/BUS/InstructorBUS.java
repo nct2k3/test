@@ -13,10 +13,10 @@ import DTO.InstructorDTO;
 public class InstructorBUS {
 
     private IInstructorDAL instructorDAL;
-    private ICourseDAL courseDAL;
+    
 
-    public InstructorBUS() {
-        instructorDAL = new InstructorDAL();
+    public InstructorBUS(IInstructorDAL instructorDAL) {
+        this.instructorDAL = instructorDAL;
     }
 
     public int createAInstructor(InstructorDTO instructor) {
