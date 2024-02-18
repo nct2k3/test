@@ -14,8 +14,8 @@ public class LecturerBUS {
 
     private ILecturerDAL lecturerDAL;
 
-    public LecturerBUS() {
-        lecturerDAL = new LecturerDAL();
+    public LecturerBUS(ILecturerDAL lecturerDAL) {
+        this.lecturerDAL = lecturerDAL;
     }
 
     public int createALecturer(LecturerDTO lecturer) {
