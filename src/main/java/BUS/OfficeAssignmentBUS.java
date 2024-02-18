@@ -13,18 +13,16 @@ import DTO.OfficeAssignmentDTO;
 public class OfficeAssignmentBUS {
     
     private IObjectDAL officeAssignmentDAL;
-    private ILecturerDAL lecturerDAL;
 
 
-    public OfficeAssignmentBUS() {
-        officeAssignmentDAL = new OfficeAssignmentDAL();
+    public OfficeAssignmentBUS(IObjectDAL officeAssignmentDAL) {
+        this.officeAssignmentDAL = officeAssignmentDAL;
     }
 
     public int createAOfficeAssignment(OfficeAssignmentDTO officeAssignment) {
-        LecturerDTO lecturerDTO = ((IObjectDAL) lecturerDAL).getAnObjectByID(officeAssignment.getInstrutorID());
         OfficeAssignmentDTO officeAssignmentDTO = officeAssignmentDAL.getAnObjectByID(officeAssignment.getInstrutorID());
         
-        if (lecturerDTO != null && officeAssignmentDTO == null) 
+        if (officeAssignmentDTO == null) 
             return ((IObjectDAL) officeAssignmentDAL).insertObject(officeAssignmentDTO);
         
         return 0;
