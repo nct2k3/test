@@ -12,8 +12,9 @@ public class CourseBUS {
     private ICourseDAL courseDAL;
     private ILecturerDAL lecturerDAL;
 
-    public CourseBUS() {
-        this.courseDAL = new CourseDAL();
+    public CourseBUS(ICourseDAL courseDAL, ILecture lectureDAL) {
+        this.courseDAL = courseDAL;
+        this.lectureDAL = lectureDAL;
     }
 
     public int createCourse(CourseDTO course) {
